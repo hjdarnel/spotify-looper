@@ -47,9 +47,22 @@ function getHashParams() {
   return hashParams;
 }
 
+export async function seek(positionMs) {
+  return await spotifyApi.seek(positionMs);
+}
+
+export async function resumePlayback() {
+  return await spotifyApi.play();
+}
+
+export async function pausePlayback() {
+  return await spotifyApi.pause();
+}
+
 export function setAccessToken(accessToken) {
   spotifyApi.setAccessToken(accessToken);
 }
+
 export async function getMe() {
   return await spotifyApi.getMe();
 }
