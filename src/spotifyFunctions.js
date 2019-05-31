@@ -2,11 +2,11 @@ import Spotify from 'spotify-web-api-node';
 const spotifyApi = new Spotify();
 
 export function redirectUrlToSpotifyForLogin() {
-  const CLIENT_ID = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
+  const CLIENT_ID = "94f209c3ff924e75a0107fffcb36ce2c";
   const REDIRECT_URI =
     process.env.NODE_ENV === 'production'
-      ? process.env.REACT_APP_SPOTIFY_PRODUCTION_REDIRECT_URI
-      : process.env.REACT_APP_SPOTIFY_DEVELOPMENT_REDIRECT_URI;
+      ? "https://spotify-looper.hjdarnel.now.sh"
+      : "localhost:3000";
 
   const scopes = [
     'user-modify-playback-state',

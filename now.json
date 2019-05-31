@@ -31,10 +31,5 @@
         "headers": { "cache-control": "s-maxage=0" },
         "dest": "/index.html"
       }
-    ],
-    "env": {
-      "REACT_APP_SPOTIFY_CLIENT_ID": "@spotify-looper-spotify-client-id",
-      "REACT_APP_SPOTIFY_DEVELOPMENT_REDIRECT_URI": "localhost:3000",
-      "REACT_APP_SPOTIFY_PRODUCTION_REDIRECT_URI": "https://spotify-looper.hjdarnel.now.sh"
-    }
+    ]
   }
