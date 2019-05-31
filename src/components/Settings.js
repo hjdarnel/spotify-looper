@@ -56,7 +56,7 @@ class Settings extends Component {
     return (
       <div className="Settings">
         <h3>Config</h3>
-        <label>Toggle Loop</label> <input type="text" ref={this.loopTriggerRef} value={this.state.loopTrigger} readOnly onKeyDown={this.loopKeyDown}/><br/>
+        <label>Toggle Loop Key</label> <input type="text" ref={this.loopTriggerRef} value={this.state.loopTrigger} readOnly onKeyDown={this.loopKeyDown}/><br/>
         <label>Loop to time (seconds)</label> <input type="number" min="0" value={this.props.playerState.seekTo} onChange={this.handleSeekToChange}/><br/>
         <label>Loop Length (seconds)</label> <input type="number" min="2" value={this.props.playerState.loopLength} onChange={this.handleLoopChange}/>
       </div>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../css/SpotifyContainer.css';
 import ConnectSpotify from './ConnectSpotify';
 import SpotifyControls from './SpotifyControls';
+import PlaybackIndicator from './PlaybackIndicator';
 import * as SpotifyFunctions from '../spotifyFunctions.js'
 
 class SpotifyContainer extends Component {
@@ -39,7 +40,7 @@ class SpotifyContainer extends Component {
       <div className="SpotifyContainer">
       <div>
         <p>Spotify Controls</p>
-        {this.props.playerState.isLooping ?  <p>Looping...</p>: <p>Not looping</p>}
+        <PlaybackIndicator isLooping={this.props.playerState.isLooping}/>
         {!this.state.loggedInToSpotify ? <ConnectSpotify /> : <SpotifyControls seekTo={this.props.playerState.seekTo} loopLength={this.props.playerState.loopLength} isLooping={this.props.playerState.isLooping} accessToken={this.state.accessToken}/> }
         </div>
       </div>

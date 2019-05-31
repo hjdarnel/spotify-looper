@@ -11,7 +11,7 @@ class SpotifyControls extends Component {
         display_name: null
       }
     }
-    this.interval = null;
+    this.intervalId = 0;
   }
 
   componentDidUpdate(prevProps, prevState){
@@ -35,7 +35,7 @@ class SpotifyControls extends Component {
     this.seek(seekPosition);
 
     console.debug('Looping every', intervalMs);
-    return setInterval(() => {
+    this.intervalId =  setInterval(() => {
       this.seek(seekPosition);
       console.debug('Seeked to', seekPosition);
     }, intervalMs);
@@ -44,9 +44,9 @@ class SpotifyControls extends Component {
   async togglePlayback(){
     if (this.props.isLooping) {
       await SpotifyFunctions.resumePlayback();
-      this.interval = this.setLoop(this.props.loopLength * 1000);
+      this.setLoop(this.props.loopLength * 1000);
     } else {
-      clearInterval(this.interval);
+      clearInterval(this.intervalId);
       console.log('Cleared loop');
       await SpotifyFunctions.pausePlayback();
     }
