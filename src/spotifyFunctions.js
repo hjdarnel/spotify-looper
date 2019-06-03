@@ -6,10 +6,11 @@ export function redirectUrlToSpotifyForLogin() {
   const REDIRECT_URI =
     process.env.NODE_ENV === 'production'
       ? "https://spotify-looper.hjdarnel.now.sh"
-      : "localhost:3000";
+      : "http://localhost:3000";
 
   const scopes = [
     'user-modify-playback-state',
+    'user-read-playback-state',
     'user-library-read',
     'user-library-modify',
     'playlist-read-private',
@@ -45,6 +46,11 @@ function getHashParams() {
     hashParams[e[1]] = decodeURIComponent(e[2]);
   }
   return hashParams;
+}
+
+export async function getCover() {
+  const { body } = await spotifyApi.getMyCurrentPlayingTrack();
+  return body.item.album.images[0];
 }
 
 export async function seek(positionMs) {

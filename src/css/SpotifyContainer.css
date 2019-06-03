@@ -6,4 +6,7 @@
   flex-direction: column;
   align-self: flex-end;
   justify-content: stretch;
+
+  border: 1px white solid;
+  border-radius: 2rem;
 }

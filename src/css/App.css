@@ -73,6 +73,12 @@ grid-row: 1/4;         /*  spread the player over rows 2, 3, and 4 (stopping at 
   grid-row: 1/1;
 }
 
+
+.search {
+  grid-column: 1/1;        /*  put the featured post only in the first column*/
+  grid-row: 1/2;        /* spread featured post over row 2 and row 3 (stop at row 4) */
+}
+
 .results {
   grid-column: 1/1;
   grid-row: 2/3;

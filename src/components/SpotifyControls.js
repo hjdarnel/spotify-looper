@@ -9,6 +9,9 @@ class SpotifyControls extends Component {
     this.state = {
       user: {
         display_name: null
+      },
+      song: {
+        cover: null
       }
     }
     this.intervalId = 0;
@@ -17,7 +20,14 @@ class SpotifyControls extends Component {
   componentDidUpdate(prevProps, prevState){
     if (prevProps.isLooping !== this.props.isLooping) {
       this.togglePlayback();
-    };
+      this.getCover();
+    }
+  }
+
+  async getCover(){
+    await SpotifyFunctions.setAccessToken(this.props.accessToken);
+    const cover = await SpotifyFunctions.getCover();
+    this.setState({song: { cover }});
   }
 
   async componentDidMount() {
@@ -56,6 +66,7 @@ class SpotifyControls extends Component {
     return (
       <div className='SpotifyControls'>
         {this.state.user ? <div>Logged in as {this.state.user.display_name} </div>: <div>Not logged in.</div>}
+        {this.props.isLooping && this.state.song.cover ? <img src={this.state.song.cover.url} alt="Cover Art"></img> : <p></p>}
       </div>
     )
   }
