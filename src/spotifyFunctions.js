@@ -3,10 +3,7 @@ const spotifyApi = new Spotify();
 
 export function redirectUrlToSpotifyForLogin() {
   const CLIENT_ID = "94f209c3ff924e75a0107fffcb36ce2c";
-  const REDIRECT_URI =
-    process.env.NODE_ENV === 'production'
-      ? "https://spotify-looper.hjdarnel.now.sh"
-      : "http://localhost:3000";
+  const REDIRECT_URI = window.location.origin;
 
   const scopes = [
     'user-modify-playback-state',
