@@ -47,7 +47,9 @@ class App extends Component {
           <p>Search</p>
         </div>
         <div className="results">
-          <p>Results</p>
+          <p>Start Spotify</p>
+          <p>Play a song, and then pause it.</p>
+          <p>The app should work :^)</p>
         </div>
         <div className="spotifyPlayer">
           <SpotifyContainer playerState={this.state.playerState}/>
